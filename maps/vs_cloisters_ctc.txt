@@ -1,0 +1,16 @@
+
+VS_CLOISTERS_CTC by Lily.
+
+Converted to CtC by r2.
+
+
+
+
+Capture the opposing teams cross to win.
+
+Your own cross must be at your base to make a capture.
+
+Vampire leaping while carrying the cross will damage you.
+
+
+

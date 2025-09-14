@@ -1,0 +1,31 @@
+
+VS_EHB_CTC by Sobek
+
+
+you can win in two ways:
+1) take out the whole enemy team
+
+2) capture the enemy cross and bring it back to your base (your cross must be there in order to win the round)
+ note: vampires should not leap while carrying the cross!
+
+------General Information--------------------------------------------
+Filename	: vs_ehb_ctc
+Last updated	: 05.Oktober.2003
+Author		: Sobek
+Author Email	: liebundartig@freenet.de
+Home page	: http://www.realsobek.de
+Description	: As you can predict from the name, this map is kind of a rebuilt
+ of the castle Ehb as shown in Dungeon Siege
+Previous Maps	: 1) rghldm_01  (HL DM)
+		  2) BStr45  	(HL DM)
+		  3) Ohno  	(HL DM)
+Upcoming Maps   : who knows?
+
+------Credits and Thanks---------------------------------------------
+Thanks goes out to:
+-the developer of the SpriteMage (Zero-Gravity) you can find this tool here:
+http://www.dsa-hl.de/
+-Acu for the skinning the horse model
+-Eatmyshorts for all the suggestions he made and for altering textures of course, too
+-Jinx for some textures
+-vam_the_great_milenko for the updated readme

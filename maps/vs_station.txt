@@ -1,0 +1,10 @@
+
+VS_STATION by Chris Amatangelo
+
+(Updated by Lily and routetwo.)
+
+
+
+Slayer can win by destoying all the coffins
+
+Vampires can win by defending coffins until round ends.

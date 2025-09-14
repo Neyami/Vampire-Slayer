@@ -1,0 +1,122 @@
+by Jinx
+
+
+Slayers:
+Assault the vampire keep!
+Destroy the coffins or slay all the vamps to win!
+
+Vampires:
+Defend your lair!
+Slay the intruders, but protect your coffins at all costs!
+
+
+
+
+
+
+
+
+
+
+
+=====================================================================
+   Half-Life Map Spec Sheet
+=====================================================================
+
+
+------General Information--------------------------------------------
+
+Title		: Revenant
+Filename		: vs_revenant
+Authors		: Jinx
+Authors Email	: jinx@cryotank.net or matthewblevins@hotmail.com
+Home page	: http://www.cryotank.net/maps/
+Description	: a DOOM-ish temple map
+Previous Maps	: vs_gebasement_v2, vs_hypersanctum
+Upcoming Maps	: ahl_temple for Action HL 1.0
+
+
+------About This Map-------------------------------------------------
+
+Revenant is based on a map layout I drew up about 5 years ago- before I got a computer! I was bored one night a few months ago and took about an hour to make the basic layout in Hammer. Then I went back and started to work on it and retexture it and... it ended up being pretty damn cool!
+
+"Revenant" is an allusion to the DOOM baddie of the same name.
+
+
+------Credits and Thanks---------------------------------------------
+
+Sobek, RamOne, and RouteTwo for their feedback and support on the VS version of this map. Couldn't have done it without you guys! :)
+
+Orpheus, Alice, corpsinhere, and everyone else who gave me such good feedback on this map. And the AHLMD forums and Snarkpit in general. The map is better because of their help!
+
+BORG for the rain sounds outside (from Stormvale originally).
+
+MeanRabbit.com (http://www.meanrabbit.com) for the rain sound on the roof (mr_ prefix).
+
+The people at Valve who did Deathmatch Classic. I use mostly textures from this mod in the map, as well as a skybox from it.
+
+Firestarter, Rawhyde, Heatmiser... basically the "wikked" folks who open-sourced those maps for Action HL. The gargoyle models are from those packs, please see the readme in the models/jinx/ directory for more information and terms of use. (http://www.wikkedwares.com/main.htm)
+
+
+------Texture Credits------------------------------------------------
+
+Manah: some textures from his public wads. (http://www.planethalf-life.com/manah/)
+
+Cayle George: a few from his "megawad". (http://www.planethalflife.com/cayle/)
+
+Deathmatch Classic: some textures are from this mod's wad. (it's valve, so I think it's open to use)
+
+DeepQantus and Hondo: I used their animated rain textures (from Noir and Endless Rain).
+
+Muad'dib: I used a texture of Muad'dib's to make the glow sprite on the fires. (http://www.planetunreal.com/muad/) (http://www.planethalflife.com/wadfather)
+
+MasterPlan: I used an animated fire texture in his Chronic texture set to make the fire sprite used in this map. (http://www.planethalf-life.com/wadfather)
+
+X-Tender: I used a texture of his for the skylight window. (http://www.fuchtelworld.de)
+
+Doenerking: That amazing water texture is his. (http://www.thedoenerking.de/)
+
+[WTF?]Evile Dick: The beautiful stained glass windows behind the gargoyles are from his Stained Glass set. I modified them for transparency around the edges. (http://www.planethalflife.com/wadfather)
+
+Jinx: I made the plant texture for the plants in the water myself out of some pics I found online.
+
+
+------Additional Info, Tips, and Notes-------------------------------
+
+
+
+------Play Information-----------------------------------------------
+
+Single Player	: No.
+Teamplay	: Yes.
+Modification	: Vampire Slayer
+Map Description	: A DOOM-esque temple
+How Many Players	: 4-14 (medium-sized map)
+
+
+------Map Information------------------------------------------------
+
+New Textures	: Yes, no default HL textures here. (see credits)
+New Sounds	: Yes. A few from Borg, a few from http://www.meanrabbit.com.
+New Models	: Yes, by Firestarter.
+New Sprites	: Yes. A flare sprite by Muad'dib's and a fire sprite by Masterplan.
+New Skymap	: Yes.  "dmcpbk" from Deathmatch Classic.
+
+
+------Construction---------------------------------------------------
+
+Base		: None.
+Editor(s) used	: Valve Hammer, Zoner's Tools
+Texture editors	: Wally, Photoshop
+Compile Machine	: Athlon 2700+ 1GB ram
+Compile time	: About 10 minutes.
+Playtest time	: A few small sessions.
+
+
+------Copyright-Permissions------------------------------------------
+
+Authors may not use this level as a base to build additional levels without my direct permission.
+
+You MAY NOT distribute this level UNLESS you INCLUDE THIS FILE WITH NO MODIFICATIONS!!!.
+
+This zip may be distributed ONLY over the Internet. You are NOT authorized to put this zip or its contents on any CD or distribute it in any way without my permission. Which I may give, just ASK ME! You are not allowed to sell or distribute this zip or its contents for profit. Basically you are NOT allowed to make MONEY off of MY work.

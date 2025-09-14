@@ -1,0 +1,9 @@
+
+VS_CHURCH by Robert Liffen ([BFTD]Slayer)
+
+(Updated by Lily and routetwo.)
+
+
+Slayers: Win by destroying the coffins in the crypt.
+
+Vampires: Win by destroyin the slayer reliquary inside the church.

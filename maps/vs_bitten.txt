@@ -1,0 +1,11 @@
+
+VS_Bitten by JMW.    --  jmwrightdesigns.com
+
+
+Slayers: Search for the underground tomb and destroy the vampires.
+         
+Vampires: Reach the city streets and kill all slayers.
+
+Both the Slayers and Vampires have regenerating areas within the map.  The Slayers
+have a room staked out near their spawn point while the Vampires can jump into the 
+blood pools.
