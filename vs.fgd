@@ -1,0 +1,42 @@
+@include "../svencoop/sven-coop.fgd"  
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//
+//			VAMPIRE SLAYER GAME ENTITIES
+//
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+@PointClass  base(PlayerClass) size(-16 -16 -36, 16 16 36) color(255 0 0) = info_player_vampire : "Player Vampire start" []
+@PointClass  base(PlayerClass) size(-16 -16 -36, 16 16 36) color(0 255 0) = info_player_slayer : "Player Slayer start" []
+//@PointClass  base(PlayerClass) size(-16 -16 -36, 16 16 36) color(0 0 255) = info_draw_slayerswin : "Slayers win in a round draw" []
+//@PointClass  base(PlayerClass) size(-16 -16 -36, 16 16 36) color(0 0 255) = info_draw_vampireswin : "Vimpires win in a round draw" []
+
+//@PointClass  base(PlayerClass) size(-16 -16 -16, 16 16 16) color(100 200 200) = info_dm : "Enable Deathmatch Play"
+//[
+//	delay(integer) : "Time before respawn (secs 1-30)"
+//]
+
+@SolidClass base(Breakable, RenderFields, ZHLT) = func_breakpoints : "Breakable Points Object" 
+[
+	spawnflags(flags) =
+	[
+		1 : "Only Trigger" : 0
+		2 : "Touch"	   : 0
+		4 : "Pressure"     : 0
+		256: "Instant Crowbar" : 1
+	]
+	_minlight(string) : "Minimum light level"
+	vsteam(integer) : "Team (0=Slayer,1=Vampire)"
+	points(integer) : "Points given to team when broken (0-100)"
+]
+
+
+//@PointClass size(-16 -16 0, 16 16 36) base(Weapon, Targetx) = item_flag_slayer : "Slayer Flag" []
+//@PointClass size(-16 -16 0, 16 16 36) base(Weapon, Targetx) = item_flag_vampire : "Vampire Flag" []
+//@PointClass base(Weapon, Targetx) = weapon_vsbike : "Bike" []
+
+
