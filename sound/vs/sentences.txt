@@ -1,7 +1,0 @@
-//VSLAYER
-RND_VWIN items/toccata
-RND_SWIN items/messiah
-RND_DRAW items/draw
-
-HEV_DEAD0 null
-HEV_DEAD1 null

@@ -1,7 +1,0 @@
-5
-weapon			640 vs/640hud1	0	135	170	45
-weapon_s		640 vs/640hud4	0	135	170	45
-ammo			640 vs/640hud7	0	72	24	24
-//ammo2			640 vs/640hud7	48	72	24	24
-crosshair		640 vs/crosshairs	0	48	24	24
-autoaim			640 vs/crosshairs	48	72	24	24
