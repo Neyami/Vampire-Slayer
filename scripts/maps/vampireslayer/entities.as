@@ -125,7 +125,7 @@ void RemoveItems()
 			if( pEntity.pev.owner is null ) //not really needed as FL_KILLME shouldn't affect any weapons a player has
 			{
 				pEntity.pev.flags = FL_KILLME;
-				g_Game.AlertMessage( at_notice, "RemoveItems REMOVED %1\n", pEntity.GetClassname() );
+				//g_Game.AlertMessage( at_notice, "RemoveItems REMOVED %1\n", pEntity.GetClassname() );
 			}
 		}
 	}
@@ -136,7 +136,7 @@ void RemoveItems()
 		while( (@pEntity = g_EntityFuncs.FindEntityByClassname(pEntity, arrsRemoveAmmo[i])) !is null )
 		{
 			pEntity.pev.flags = FL_KILLME;
-			g_Game.AlertMessage( at_notice, "RemoveItems REMOVED %1\n", pEntity.GetClassname() );
+			//g_Game.AlertMessage( at_notice, "RemoveItems REMOVED %1\n", pEntity.GetClassname() );
 		}
 	}
 
@@ -146,7 +146,7 @@ void RemoveItems()
 		while( (@pEntity = g_EntityFuncs.FindEntityByClassname(pEntity, arrsRemoveItems[i])) !is null )
 		{
 			pEntity.pev.flags = FL_KILLME;
-			g_Game.AlertMessage( at_notice, "RemoveItems REMOVED %1\n", pEntity.GetClassname() );
+			//g_Game.AlertMessage( at_notice, "RemoveItems REMOVED %1\n", pEntity.GetClassname() );
 		}
 	}
 }

@@ -155,7 +155,7 @@ CCVar@ cvar_iRoundLimit;
 CClientCommand vs_roundtime( "vs_roundtime", "Length of each round (default: 180)", @VSSettings, ConCommandFlag::AdminOnly );
 CClientCommand vs_roundlimit( "vs_roundlimit", "Number of rounds before map change. (default: 10)", @VSSettings, ConCommandFlag::AdminOnly );
 CClientCommand vs_restart( "vs_restart", "Reset scores and round number.", @CmdRestartGame, ConCommandFlag::Cheat );
-CClientCommand vs_restartround( "vs_restartround", "Reset scores and round number.", @CmdRestartRound, ConCommandFlag::Cheat );
+CClientCommand vs_restartround( "vs_restartround", "Restart current round.", @CmdRestartRound, ConCommandFlag::Cheat );
 CClientCommand changeteam( "changeteam", "Opens the team select menu.", @CmdTeamMenu );
 
 ChatCommandSystem::ChatCommandManager@ g_ChatCommands = null;
@@ -633,7 +633,7 @@ HookReturnCode PlayerTakeDamage( DamageInfo@ pDamageInfo )
 
 	if( victimTeam == TEAM_VAMPIRE and attackerTeam == TEAM_SLAYER )
 	{
-		//if( DEBUG )
+		if( DEBUG )
 			g_Game.AlertMessage( at_notice, "SLAYER ATTACKING VAMPIRE flDamage: %1, health: %2, IsKnockedOut: %3\n", flDamage, pVictim.pev.health, IsKnockedOut(pVictim) );
 
 		// slayer has done enough damage, knockdown vampire
@@ -689,7 +689,7 @@ HookReturnCode PlayerTakeDamage( DamageInfo@ pDamageInfo )
 
 void OnPlayerTakeDamage_Post( EHandle eVictim, EHandle eInflictor, EHandle eAttacker, float damage, int damagetype )
 {
-	g_Game.AlertMessage( at_notice, "OnPlayerTakeDamage_Post CALLED\n" );
+	//g_Game.AlertMessage( at_notice, "OnPlayerTakeDamage_Post CALLED\n" );
 
 	CBasePlayer@ pVictim = cast<CBasePlayer@>( eVictim.GetEntity() );
 	CBasePlayer@ pAttacker = cast<CBasePlayer@>( eAttacker.GetEntity() );
@@ -701,11 +701,11 @@ void OnPlayerTakeDamage_Post( EHandle eVictim, EHandle eInflictor, EHandle eAtta
 
 	if( victimTeam == TEAM_VAMPIRE and attackerTeam == TEAM_SLAYER )
 	{
-		g_Game.AlertMessage( at_notice, "OnPlayerTakeDamage_Post SLAYER ATTACKING VAMPIRE\n" );
+		//g_Game.AlertMessage( at_notice, "OnPlayerTakeDamage_Post SLAYER ATTACKING VAMPIRE\n" );
 		//slayer has done enough damage, knockdown vampire
 		if( GetHasToBeKnockOut(pVictim) and !IsKnockedOut(pVictim) )
 		{
-			g_Game.AlertMessage( at_notice, "OnPlayerTakeDamage_Post SLAYER KNOCKED VAMPIRE OUT\n" );
+			//g_Game.AlertMessage( at_notice, "OnPlayerTakeDamage_Post SLAYER KNOCKED VAMPIRE OUT\n" );
 			VS_KnockOut( pVictim );
 			lang::ClientPrintAll( HUD_PRINTTALK, "NOTIF_KNOCKOUT", pAttacker.pev.netname, pVictim.pev.netname );
 			SetHasToBeKnockOut( pVictim, false );
@@ -2041,7 +2041,7 @@ void set_user_rendering( CBasePlayer@ pPlayer, int fx = kRenderFxNone, int r = 0
 {
 	if( pPlayer is null or !pPlayer.IsConnected() )
 	{
-		g_Game.AlertMessage( at_logged, "pPlayer is null or not connected in set_user_rendering\n" );
+		//g_Game.AlertMessage( at_logged, "pPlayer is null or not connected in set_user_rendering\n" );
 		return;
 	}
 
