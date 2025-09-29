@@ -1,5 +1,10 @@
 # WIP
 Sven Co-op version of the Half-Life mod Vampire Slayer by Routetwo  
+Players choose to be either Vampires or Slayers, each team has 3 different classes with different weapons/abilities (only invisibility for vamps atm)  
+Teams can win by:  
+A) Killing all members of the opposing team.  
+B) Destroying all opposing team relics. (on certain maps)  
+C) Capture the Cross (on certain maps) NYI  
 
 
 [Download Resources](https://www.dropbox.com/scl/fi/5ptg864qnal3cao4e7fqn/Vampire-Slayer-resources_v1.0.zip?rlkey=nwcvyk7xu9e2sfr2tl3deq93v&dl=0)  
