@@ -1,0 +1,51 @@
+// SVENGINE EVENT DEFINITION FILE
+
+// Console commands:
+// "ev_list" - lists all detected events
+// "ev_scan" - scans for new/updated events
+// "ev_curtime" - prints the current (UTC) time as returned by Steam API
+
+// Name used by the engine/game to identify the event.
+// If not specified folder name will be used to determine the event name.
+// (i.e. "xmas" for event loaded from folder named "svencoop_event_xmas")
+name "vampslay"
+
+// Event title (currently only used by the "ev_list" command)
+title "Vampire Slayer"
+
+// Start time - format: YYYY-MM-DD HH:MM:SS (UTC)
+// Year can be omitted in which case the event will repeat every year.
+// Time can be omitted in which case it will be set to 00:00:00 (midnight)
+// Seconds can be omitted in which case it will be set to 00 seconds.
+// Steam API is used to get the current (UTC) time.
+time_start "01-01"
+
+// End time - see time_start for format.
+// If time_start is set to repeat every year, time_end must be set that way
+// as well (year omitted).
+time_end "12-31"
+
+// Priority of the event. This determines order of the search path associated
+// with the event in relation to other events and to the base content.
+// priority >= 0 - event content can override the base game
+// priority < 0 - event content can be overridden by the base game
+// priority >= 1000 - reserved for official events, please use priority < 1000
+// for your custom events.
+// default value: 0 (the lowest priority that still overrides the base game)
+priority "420"
+
+// Indicates whether this event comes with any UI content.
+// (menu background, menu music, scheme files etc.)
+// Whether the UI content should be used is determined by the client when it's
+// first started. This will not update dynamically, restart is required.
+// 0 - UI content disabled, 1 - UI content enabled
+// default value: 0 (disabled)
+content_ui "0"
+
+// Indicates whether this event comes with any game content.
+// (models, sounds, scripts etc.)
+// Whether the game content should be enabled is determined by the server
+// during map change. All clients are notified about currently active events.
+// 0 - game content disabled, 1 - game content enabled
+// default value: 0 (disabled)
+content_game "1"
