@@ -7,4 +7,17 @@ If you want to keep the VS resources out of the regular svencoop_addon or whatev
 This will require putting event_info.txt in the same folder, using the console command `ev_scan` or restarting the game, then `ev_enable vampslay`  
 
 # COMMANDS  
+CONSOLE  
+`vs_roundtime` - Get/Set how long each round lasts. ADMIN ONLY  
+`vs_roundlimit` - Get/Set how many rounds until the map changes. ADMIN ONLY  
+`vs_restart` - Reset scores and round number. ADMIN ONLY  
+`vs_restartround` - Restart current round. ADMIN ONLY  
+`changeteam` - Opens the team select menu. PUBLIC  
+
+CHAT  
+`!team` - Opens the team select menu. PUBLIC  
+
+CVARS (can be set in mapconfig with as_command cvar num)  
+`vs-roundtime`  
+`vs-roundlimit`  
 
