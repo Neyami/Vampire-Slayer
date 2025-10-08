@@ -64,13 +64,11 @@ const int HUD_CHAN_SCORE = 2;
 const int HUD_CHAN_BREAKPOINTS = 3;
 
 const int HUD_CHAN_TIMER = 8; //HUDNumDisplayParams 0-15
-//const RGBA HUD_COLOR = RGBA_SVENCOOP;
 const RGBA HUD_COLOR = RGBA( 159, 95, 47, 255 );
 
 const float VAMP_HIGHJUMP_HEIGHT = 275.0;
 const int VAMP_MAXSPEED = 320;
 
-// until I add the missing powers, use default attributes from Edgar
 const float VAMP_EDGAR_WAKEUP_HEALTH = 20;
 const float VAMP_EDGAR_KNOCKOUT_DURATION = 4.0;
 
@@ -84,9 +82,9 @@ const int SLAYER_MAXSPEED = 240;
 
 const float ROUND_START_RETRY = 1.0; //how frequently to check if there are enough players with valid teams and classes selected
 const float ROUND_RESTART_TIME = 5.0; //time until a new round is started
-const float NEXTMAP_TIME	= 10.0; //time until changing to the next map after the round limit has been hit
+const float NEXTMAP_TIME	= 10.0; //time until changing to the next map after the round limit has been reached
 
-const int BREAKPOINTS_TO_WIN = 100; //A team wins if their g_iBreakPoints reaches 100
+const int BREAKPOINTS_TO_WIN = 100; //A team wins if their g_iBreakPoints reaches this value
 
 enum vssounds_e
 {
@@ -144,7 +142,8 @@ int g_iBreakPointsVampire; //When breaking func_breakpoints this increases, Vamp
 array<int> g_iTeamScore( HL_MAX_TEAMS );
 
 CTextMenu@ teamMenu = null;
-CTextMenu@ classMenu = null;
+CTextMenu@ classMenuSlayer = null;
+CTextMenu@ classMenuVampire = null;
 
 CScheduledFunction@ schedRoundStart = null;
 CScheduledFunction@ schedRoundTimer = null;
@@ -1310,13 +1309,13 @@ void teamMenuCallback( CTextMenu@ menu, CBasePlayer@ pPlayer, int iSlot, const C
 		if( sTeamname == "slayer" )
 		{
 			ChangePlayerTeam( pPlayer, TEAM_SLAYER, true );
-			lang::ClientPrintAll( HUD_PRINTTALK, "TEAM_CHANGE", pPlayer.pev.netname, lang::getLocalizedText(pPlayer, "TITLE_SLAYER").ToUppercase() );
+			//lang::ClientPrintAll( HUD_PRINTTALK, "TEAM_CHANGE", pPlayer.pev.netname, lang::getLocalizedText(pPlayer, "TITLE_SLAYER").ToUppercase() ); //moved to when player chooses class
 			SetPlayerTeam( pPlayer, TEAM_SLAYER );
 		}
 		else
 		{
 			ChangePlayerTeam( pPlayer, TEAM_VAMPIRE, true );
-			lang::ClientPrintAll( HUD_PRINTTALK, "TEAM_CHANGE", pPlayer.pev.netname, lang::getLocalizedText(pPlayer, "TITLE_VAMPIRE").ToUppercase() );
+			//lang::ClientPrintAll( HUD_PRINTTALK, "TEAM_CHANGE", pPlayer.pev.netname, lang::getLocalizedText(pPlayer, "TITLE_VAMPIRE").ToUppercase() ); //moved to when player chooses class
 			SetPlayerTeam( pPlayer, TEAM_VAMPIRE );
 		}
 
@@ -1341,25 +1340,30 @@ void SayCmdClassMenu( SayParameters@ pParams )
 
 void DisplayClassMenu( CBasePlayer@ pPlayer )
 {
-	@classMenu = CTextMenu( TextMenuPlayerSlotCallback(classMenuCallback) );
-		classMenu.SetTitle( lang::getLocalizedText(pPlayer, "MENU_CLASS") );
-
 		if( GetPlayerTeam(pPlayer) == TEAM_SLAYER )
 		{
-			classMenu.AddItem( lang::getLocalizedText(pPlayer, "CLASS_HUMAN_FATHER"), any(CLASS_HUMAN_FATHER) );
-			classMenu.AddItem( lang::getLocalizedText(pPlayer, "CLASS_HUMAN_MOLLY"), any(CLASS_HUMAN_MOLLY) );
-			classMenu.AddItem( lang::getLocalizedText(pPlayer, "CLASS_HUMAN_EIGHTBALL"), any(CLASS_HUMAN_EIGHTBALL) );
+			@classMenuSlayer = CTextMenu( TextMenuPlayerSlotCallback(classMenuCallback) );
+			classMenuSlayer.SetTitle( lang::getLocalizedText(pPlayer, "MENU_CLASS") );
+
+			classMenuSlayer.AddItem( lang::getLocalizedText(pPlayer, "CLASS_HUMAN_FATHER"), any(CLASS_HUMAN_FATHER) );
+			classMenuSlayer.AddItem( lang::getLocalizedText(pPlayer, "CLASS_HUMAN_MOLLY"), any(CLASS_HUMAN_MOLLY) );
+			classMenuSlayer.AddItem( lang::getLocalizedText(pPlayer, "CLASS_HUMAN_EIGHTBALL"), any(CLASS_HUMAN_EIGHTBALL) );
+
+			classMenuSlayer.Register();
+			classMenuSlayer.Open( 0, 0, pPlayer );
 		}
 		else if( GetPlayerTeam(pPlayer) == TEAM_VAMPIRE )
 		{
-			classMenu.AddItem( lang::getLocalizedText(pPlayer, "CLASS_VAMP_LOUIS"), any(CLASS_VAMP_LOUIS) );
-			classMenu.AddItem( lang::getLocalizedText(pPlayer, "CLASS_VAMP_EDGAR"), any(CLASS_VAMP_EDGAR) );
-			classMenu.AddItem( lang::getLocalizedText(pPlayer, "CLASS_VAMP_NINA"), any(CLASS_VAMP_NINA) );
+			@classMenuVampire = CTextMenu( TextMenuPlayerSlotCallback(classMenuCallback) );
+			classMenuVampire.SetTitle( lang::getLocalizedText(pPlayer, "MENU_CLASS") );
+
+			classMenuVampire.AddItem( lang::getLocalizedText(pPlayer, "CLASS_VAMP_LOUIS"), any(CLASS_VAMP_LOUIS) );
+			classMenuVampire.AddItem( lang::getLocalizedText(pPlayer, "CLASS_VAMP_EDGAR"), any(CLASS_VAMP_EDGAR) );
+			classMenuVampire.AddItem( lang::getLocalizedText(pPlayer, "CLASS_VAMP_NINA"), any(CLASS_VAMP_NINA) );
+
+			classMenuVampire.Register();
+			classMenuVampire.Open( 0, 0, pPlayer );
 		}
-
-	classMenu.Register();
-
-	classMenu.Open( 0, 0, pPlayer );
 }
 
 void classMenuCallback( CTextMenu@ menu, CBasePlayer@ pPlayer, int iSlot, const CTextMenuItem@ pItem )
@@ -1384,6 +1388,11 @@ void classMenuCallback( CTextMenu@ menu, CBasePlayer@ pPlayer, int iSlot, const 
 		SpeakSnd( pPlayer, "_period", false );
 
 		SetCanOpenMenu( pPlayer, false );
+
+		if( GetPlayerTeam(pPlayer) == TEAM_VAMPIRE )
+			lang::ClientPrintAll( HUD_PRINTTALK, "TEAM_CHANGE", pPlayer.pev.netname, lang::getLocalizedText(pPlayer, "TITLE_VAMPIRE").ToUppercase() );
+		else
+			lang::ClientPrintAll( HUD_PRINTTALK, "TEAM_CHANGE", pPlayer.pev.netname, lang::getLocalizedText(pPlayer, "TITLE_SLAYER").ToUppercase() );
 	}
 }
 
@@ -2144,3 +2153,9 @@ void CmdRestartRound( const CCommand@ args )
 //"Client lost reserved sound!" :aRage:
 //ERROR:  Decrypt processing error: HashVerificationFilter: message hash or MAC not valid ???
 //ERROR:  Decrypt error: Encrpyted digest mismatch. - when adding bots
+
+/* FIXME
+*/
+
+/* TODO
+*/

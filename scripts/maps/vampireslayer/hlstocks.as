@@ -131,6 +131,10 @@ int __count_teams()
 bool hl_get_user_spectator( CBasePlayer@ client )
 {
 	return client.GetObserver().IsObserver();
+	/*if( client.pev.iuser1 == 1 or client.pev.iuser2 == 1 )
+		return true;
+
+	return false;*/
 }
 
 void hl_set_user_spectator( CBasePlayer@ pPlayer, bool spectator = true )
